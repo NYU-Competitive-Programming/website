@@ -3,49 +3,31 @@
 <html lang="en">
 
 <head>
-  <title>Meeting Information</title>
+  <title>Competitive Programming at NYU</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS and JS -->
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
+  <div w3-include-html="navbar.html"></div>
+
   <div class="container">
-    <div w3-include-html="navbar.html"></div>
+    <p>Meetings happen weekly on the Tandon campus at <a href="https://goo.gl/maps/B1edUK7Tbrg7eqXv9">370 Jay Street</a> in room 834 on the 8th floor from 5:00pm to 6:30pm. Typically we will do a short competition directly following the regularly scheduled meeting.</p>
+    <p>When you arrive at the building take the elevators up to the 8th floor. To open the door swipe your NYU ID on the scanner to the right. If your ID does not work, post a message to the discord and a member will come open the door for you.</p>
 
-    <p class="center">Meetings happen weekly on the Tandon campus at <a href="https://goo.gl/maps/B1edUK7Tbrg7eqXv9">370
-        Jay Street</a> in room 834 on the 8th floor from 5:00pm to 6:30pm. Typically we will do a short competition
-      directly following the regularly scheduled meeting.</p>
-    <div class="center"><iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.140120037597!2d-73.98964998408997!3d40.692911579334066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4bc1eb7b11%3A0xe33785c6b51a38f1!2s370%20Jay%20St%2C%20Brooklyn%2C%20NY%2011201!5e0!3m2!1sen!2sus!4v1663554310130!5m2!1sen!2sus"
-        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-    <div class="center"><iframe
-        src="https://calendar.google.com/calendar/embed?src=c_76uokm0tbkd9ul3j6ekeo7coj4%40group.calendar.google.com&ctz=America%2FNew_York"
-        style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe></div>
+    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.140120037597!2d-73.98964998408997!3d40.692911579334066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4bc1eb7b11%3A0xe33785c6b51a38f1!2s370%20Jay%20St%2C%20Brooklyn%2C%20NY%2011201!5e0!3m2!1sen!2sus!4v1663554310130!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div><iframe src="https://calendar.google.com/calendar/embed?src=c_76uokm0tbkd9ul3j6ekeo7coj4%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe></div>
   </div>
-</body>
 
-
-
-<script>
-  $(function () {
-    $('nav li a').filter(function () {
-      return this.href === location.href;
-    }).addClass('active');
-  });
-</script>
-
-<script>
-  includeHTML();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <script>$(function () { $('nav li a').filter(function () { return this.href === location.href; }).addClass('active'); });</script>
+  <script>includeHTML();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 
 </html>
