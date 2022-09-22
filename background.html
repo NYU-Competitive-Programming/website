@@ -21,7 +21,7 @@
             font-family: "ROBOTO", sans-serif;
         }
 
-        .nav,
+        .background-nav,
         .slider {
             display: flex;
             flex-direction: column;
@@ -34,7 +34,7 @@
             padding: 0 2em;
         }
 
-        .nav h1,
+        .background-nav h1,
         .slider h1 {
             font-family: "Josefin Sans", sans-serif;
             font-size: 5vw;
@@ -79,7 +79,7 @@
             text-decoration: none;
         }
 
-        .nav-container {
+        .background-nav-container {
             display: flex;
             flex-direction: row;
             position: absolute;
@@ -92,18 +92,18 @@
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .nav-container--top-first {
+        .background-nav-container--top-first {
             position: fixed;
             top: 75px;
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .nav-container--top-second {
+        .background-nav-container--top-second {
             position: fixed;
             top: 0;
         }
 
-        .nav-tab {
+        .background-nav-tab {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -114,13 +114,13 @@
             font-size: 2vw;
         }
 
-        .nav-tab:hover {
+        .background-nav-tab:hover {
             color: #1e1f26;
             background: #03dac6;
             transition: all 0.5s ease;
         }
 
-        .nav-tab-slider {
+        .background-nav-tab-slider {
             position: absolute;
             bottom: 0;
             width: 0;
@@ -129,7 +129,7 @@
             transition: left 0.3s ease;
         }
 
-        .background {
+        /* .background {
             position: absolute;
             height: 90vh;
             top: 0;
@@ -137,46 +137,48 @@
             left: 0;
             right: 0;
             z-index: auto;
-        }
+        } */
 
         @media (min-width: 800px) {
 
-            .nav h1,
+            .background-nav h1,
             .slider h1 {
                 font-size: 5vw;
             }
 
-            .nav h2,
+            .background-nav h2,
             .slider h2 {
                 font-size: 3vw;
             }
 
-            .nav-tab {
+            .background-nav-tab {
                 font-size: 3vw;
             }
         }
 
         @media screen only (min-width: 360px) {
 
-            .nav h1,
+            .background-nav h1,
             .slider h1 {
                 font-size: 8vw;
             }
 
-            .nav h2,
+            .background-nav h2,
             .slider h2 {
                 font-size: 2vw;
                 letter-spacing: 0.2vw;
             }
 
-            .nav-tab {
+            .background-nav-tab {
                 font-size: 1.2vw;
             }
         }
 
         .background {
-            position: absolute;
-            height: 100vh;
+            position: fixed;
+            /* height: 100vh; */
+            height: 100%;
+            width: 100%;
             top: 0;
             bottom: 0;
             left: 0;
@@ -280,6 +282,7 @@
         .loader span:nth-child(22) {
             -webkit-animation-delay: 2.1s;
         }
+
     </style>
     <script>
 
@@ -304,14 +307,14 @@
             ]
         });
 
-        class NavigationPage {
+        class background-navigationPage {
             constructor() {
                 this.currentId = null;
                 this.currentTab = null;
                 this.tabContainerHeight = 70;
                 this.lastScroll = 0;
                 let self = this;
-                $(".nav-tab").click(function () {
+                $(".background-nav-tab").click(function () {
                     self.onTabClick(event, $(this));
                 });
                 $(window).scroll(() => {
@@ -344,33 +347,33 @@
             checkHeaderPosition() {
                 const headerHeight = 75;
                 if ($(window).scrollTop() > headerHeight) {
-                    $(".nav-container").addClass("nav-container--scrolled");
+                    $(".background-nav-container").addClass("background-nav-container--scrolled");
                 } else {
-                    $(".nav-container").removeClass("nav-container--scrolled");
+                    $(".background-nav-container").removeClass("background-nav-container--scrolled");
                 }
                 let offset =
-                    $(".nav").offset().top +
-                    $(".nav").height() -
+                    $(".background-nav").offset().top +
+                    $(".background-nav").height() -
                     this.tabContainerHeight -
                     headerHeight;
                 if (
                     $(window).scrollTop() > this.lastScroll &&
                     $(window).scrollTop() > offset
                 ) {
-                    $(".nav-container").addClass("nav-container--move-up");
-                    $(".nav-container").removeClass("nav-container--top-first");
-                    $(".nav-container").addClass("nav-container--top-second");
+                    $(".background-nav-container").addClass("background-nav-container--move-up");
+                    $(".background-nav-container").removeClass("background-nav-container--top-first");
+                    $(".background-nav-container").addClass("background-nav-container--top-second");
                 } else if (
                     $(window).scrollTop() < this.lastScroll &&
                     $(window).scrollTop() > offset
                 ) {
-                    $(".nav-container").removeClass("nav-container--move-up");
-                    $(".nav-container").removeClass("nav-container--top-second");
-                    $(".nav-container-container").addClass("nav-container--top-first");
+                    $(".background-nav-container").removeClass("background-nav-container--move-up");
+                    $(".background-nav-container").removeClass("background-nav-container--top-second");
+                    $(".background-nav-container-container").addClass("background-nav-container--top-first");
                 } else {
-                    $(".nav-container").removeClass("nav-container--move-up");
-                    $(".nav-container").removeClass("nav-container--top-first");
-                    $(".nav-container").removeClass("nav-container--top-second");
+                    $(".background-nav-container").removeClass("background-nav-container--move-up");
+                    $(".background-nav-container").removeClass("background-nav-container--top-first");
+                    $(".background-nav-container").removeClass("background-nav-container--top-second");
                 }
             }
 
@@ -378,7 +381,7 @@
                 let newCurrentId;
                 let newCurrentTab;
                 let self = this;
-                $(".nav-tab").each(function () {
+                $(".background-nav-tab").each(function () {
                     let id = $(this).attr("href");
                     let offsetTop = $(id).offset().top - self.tabContainerHeight;
                     let offsetBottom =
@@ -405,24 +408,24 @@
                     width = this.currentTab.css("width");
                     left = this.currentTab.offset().left;
                 }
-                $(".nav-tab-slider").css("width", width);
-                $(".nav-tab-slider").css("left", left);
+                $(".background-nav-tab-slider").css("width", width);
+                $(".background-nav-tab-slider").css("left", left);
             }
         }
 
-        new NavigationPage();
+        new background - navigationPage();
   /* Credit and Thanks:
-        Matrix - Particles.js;
-        SliderJS - Ettrics;
-        Design - Sara Mazal Web;
-        Fonts - Google Fonts
-        */
+                    Matrix - Particles.js;
+                    SliderJS - Ettrics;
+                    Design - Sara Mazal Web;
+                    Fonts - Google Fonts
+                    */
 
     </script>
 </head>
 
 <body>
-    <div class="nav">
+    <div class="background-nav">
         <h1>POLY PROGRAMMING CLUB</h1>
         <h3 class="span loader"><span class="m">C</span><span class="m">O</span><span class="m">M</span><span class="m">P</span><span class="m">E</span><span class="m">T</span><span class="m">I</span><span class="m">T</span><span class="m">I</span><span class="m">V</span><span class="m">E</span><span class="m">&nbsp;</span><span class="m">P</span><span class="m">R</span><span class="m">O</span><span class="m">G</span><span class="m">R</span><span class="m">A</span><span class="m">M</span><span class="m">M</span><span class="m">I</span><span class="m">N</span><span class="m">G</span><span class="m">&nbsp;</span><span class="m">C</span><span class="m">O</span><span class="m">M</span><span class="m">M</span><span class="m">U</span><span class="m">N</span><span class="m">I</span><span class="m">T</span><span class="m">Y</span></h3>
     </div>
